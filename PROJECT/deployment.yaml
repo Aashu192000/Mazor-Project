@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: skiptheq-website
+spec:
+  replicas: 1  # Adjust if you want to run multiple instances of your website
+  selector:
+    matchLabels:
+      app: skiptheq-website
+  template:
+    metadata:
+      labels:
+        app: skiptheq-website
+    spec:
+      containers:
+      - name: skiptheq-website
+        image: skiptheq-website:latest # Update with your image ID
+        ports:
+        - containerPort: 80

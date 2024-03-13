@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: skiptheq-website-service  # Service name follows deployment name convention
+spec:
+  selector:
+    app: skiptheq-website  # Matches the label in your deployment YAML
+  ports:
+  - protocol: TCP
+    port: 80  # External port (can be adjusted if needed)
+    targetPort: 80  # Matches the container port in your deployment
+  type: NodePort  # Adjust if needed (e.g., LoadBalancer for cloud deployments)
